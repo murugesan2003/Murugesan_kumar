@@ -420,7 +420,7 @@
         <div style="display: flex; align-items: center; gap: 20px;">
             <h2>⚡ DECKLE MATCHING</h2>
             <div class="user-info-box">
-                <span class="logged-user-text" id="displayUsername">LOGED USER: GUEST</span>
+                <span class="logged-user-text" id="displayUsername">LOGGED USER: GUEST</span>
                 <span class="logged-time-text" id="displayLoginTime">--</span>
             </div>
         </div>
@@ -429,7 +429,7 @@
             <div class="summary-badge">TOTAL: <span id="controlTotalQty">0.0 MT</span></div>
             <div class="summary-badge">MATCHED: <span id="controlMatchedQty" style="color: #4ade80;">0.0 MT</span></div>
             <div class="summary-badge">PENDING: <span id="controlPendingQty" style="color: #f87171;">0.0 MT</span></div>
-            <!-- Logout Button styled exactly like summary badges (Transparent with border and hover effect) -->
+            <!-- Logout Button -->
             <button onclick="handleLogout()" class="summary-badge" style="background: transparent; color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); cursor: pointer; font-family: inherit;">LOGOUT</button>
         </div>
     </div>
@@ -564,13 +564,9 @@
     <script>
         const validUsers = [
             { username: "murugesan", pass: "890968" },
-            { username: "kanagaraj", pass: "mohi2020" },
+            { username: "kanakaraj", pass: "mohi2020" },
             { username: "venkateshwari", pass: "svk2002"},
-            { username: "avudaiappan", pass: "arav2021"},
-            { username: "MURUGESAN", pass: "890968" },
-            { username: "KANAGARAJ", pass: "MOHI2020" },
-            { username: "VENKATESHWARI", pass: "SVK2002"},
-            { username: "AVUDAIAPPAN", pass: "ARAV2021"}
+            { username: "avudaiyappan", pass: "arav2022"}
         ];
 
         window.addEventListener('DOMContentLoaded', () => {
@@ -578,7 +574,7 @@
             const loggedInTime = sessionStorage.getItem('deckleLoginTime');
             if (loggedInUser && loggedInTime) {
                 document.getElementById('loginOverlay').style.display = 'none';
-                document.getElementById('displayUsername').innerText = `LOGED USER: ${loggedInUser.toUpperCase()}`;
+                document.getElementById('displayUsername').innerText = `LOGGED USER: ${loggedInUser.toUpperCase()}`;
                 document.getElementById('displayLoginTime').innerText = `Login Time: ${loggedInTime}`;
             } else {
                 document.getElementById('loginOverlay').style.display = 'flex';
@@ -594,8 +590,6 @@
             if (matched) {
                 const now = new Date();
                 const timeString = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();
-                
-                // Store correct lowercase key for data lookup, but display clean exact lowercase/uppercase as desired
                 const cleanUsername = matched.username.toUpperCase();
                 
                 sessionStorage.setItem('deckleUserSession', cleanUsername);
@@ -1194,19 +1188,6 @@
             });
         }
 
-        function buildExcelTableHTML(headers, rows) {
-            let html = `<table border="1" style="border-collapse:collapse; width:100%;"><thead><tr style="background-color:#46b2cb; color:white; font-weight:bold;">`;
-            headers.forEach(h => html += `<th style="border:1px solid #000000; padding:8px; text-align:center;">${h}</th>`);
-            html += `</tr></thead><tbody>`;
-            rows.forEach(r => {
-                html += `<tr>`;
-                r.forEach(val => html += `<td style="border:1px solid #000000; padding:8px; text-align:center;">${val !== "" && val !== null && val !== undefined ? val : ""}</td>`);
-                html += `</tr>`;
-            });
-            html += `</tbody></table>`;
-            return html;
-        }
-
         function exportSingleTable(type) {
             let workbook = XLSX.utils.book_new();
 
@@ -1261,7 +1242,6 @@
             showToast("Exported Successfully!");
         }
 
-        // Helper function to apply clear borders to all cells in SheetJS exports
         function applySheetBorders(ws) {
             const range = XLSX.utils.decode_range(ws['!ref']);
             const thinBorder = {
@@ -1383,6 +1363,11 @@
                     row.push({ content: sub.customerName, styles: { fontStyle: 'bold' } });
                     pdfBody.push(row);
                 });
+
+                // Blank row added for each set in PDF output
+                pdfBody.push([
+                    { content: '', colSpan: 9, styles: { fillColor: [241, 245, 249], cellPadding: 1 } }
+                ]);
             });
 
             doc.autoTable({
@@ -1403,4 +1388,4 @@
         }
     </script>
 </body>
-</html>
+    </html>
