@@ -1422,10 +1422,9 @@
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF('landscape');
 
-            doc.setFont('helvetica', 'bold');
-            doc.setFontSize(10);
-            doc.setTextColor(15, 23, 42);
-            doc.text(`DECKLE MATCHING - PRODUCTION REPORT`, 14, 8);
+            // Format current date and time
+            const now = new Date();
+            const dateStr = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();[cite: 1]
 
             let pdfBody = [];
             globalFinalSets.forEach(set => {
@@ -1483,13 +1482,118 @@
             doc.autoTable({
                 head: [['S.NO', 'DIA', 'GRADE', 'GSM', 'MATCHING PATTERN', 'TYPE', 'QTY (MT)', 'DECKLE', 'CUSTOMER NAME']],
                 body: pdfBody,
-                startY: 12,
+                startY: 18, // Pushed down slightly to give room for the header text
                 theme: 'grid',
                 headStyles: { fillColor: [70, 178, 203], textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 8, halign: 'center', lineWidth: 0.1, lineColor: [0, 0, 0] },
                 bodyStyles: { lineWidth: 0.1, lineColor: [0, 0, 0] },
                 styles: { font: 'helvetica', fontSize: 8, cellPadding: 2, halign: 'center', valign: 'middle' },
                 columnStyles: {
                     4: { halign: 'center', cellWidth: 90, fontStyle: 'bold', textColor: [15, 23, 42] }
+                },
+                // This hook automatically runs on every page generation
+                didDrawPage: function (data) {
+                    doc.setFont('helvetica', 'bold');
+                    doc.setFontSize(10);
+                    doc.setTextColor(15, 23, 42);
+                    
+                    // Left side: Title
+                    doc.text(`DECKLE MATCHING - PRODUCTION REPORT`, data.settings.margin.left, 10);[cite: 1]
+                    
+                    // Right side: Date and Time
+                    doc.setFont('helvetica', 'normal');
+                    doc.setFontSize(9);
+                    doc.text(`Date: ${dateStr}`, doc.internal.pageSize.getWidth() - data.settings.margin.right, 10, { align: 'right' });[cite: 1]
+                }
+            });
+
+            doc.save(`Deckle_Matching_Report.pdf`);
+            showToast("Exported PDF Report!");
+        }function exportToPDF() {
+            if (!globalFinalSets.length) { alert("Run matching before exporting PDF!"); return; }
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('landscape');
+
+            // Format current date and time
+            const now = new Date();
+            const dateStr = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();[cite: 1]
+
+            let pdfBody = [];
+            globalFinalSets.forEach(set => {
+                let totalRows = set.subItems.length;
+                let typeBlocks = [];
+                set.subItems.forEach(sub => {
+                    if (typeBlocks.length === 0 || typeBlocks[typeBlocks.length - 1].type !== sub.orderType) {
+                        typeBlocks.push({ type: sub.orderType, count: 1 });
+                    } else {
+                        typeBlocks[typeBlocks.length - 1].count++;
+                    }
+                });
+
+                let blockIndex = 0;
+                let rowInBlock = 0;
+
+                set.subItems.forEach((sub, idx) => {
+                    let row = [];
+                    if (idx === 0) {
+                        row.push({ content: set.sNo, rowSpan: totalRows });
+                        row.push({ content: set.dia, rowSpan: totalRows });
+                        row.push({ content: set.grade, rowSpan: totalRows, styles: { fontStyle: 'bold' } });
+                    }
+                    row.push({ content: sub.gsm, styles: { fontStyle: 'bold' } });
+                    row.push({ content: sub.matching, styles: { fontStyle: 'bold' } });
+
+                    if (rowInBlock === 0) {
+                        let bCount = typeBlocks[blockIndex].count;
+                        if (bCount > 1) {
+                            row.push({ content: typeBlocks[blockIndex].type, rowSpan: bCount });
+                        } else {
+                            row.push(typeBlocks[blockIndex].type);
+                        }
+                    }
+
+                    rowInBlock++;
+                    if (rowInBlock >= typeBlocks[blockIndex].count) {
+                        blockIndex++;
+                        rowInBlock = 0;
+                    }
+
+                    if (idx === 0) {
+                        row.push({ content: set.qty, rowSpan: totalRows, styles: { fontStyle: 'bold' } });
+                        row.push({ content: set.deckle, rowSpan: totalRows });
+                    }
+                    row.push({ content: sub.customerName, styles: { fontStyle: 'bold' } });
+                    pdfBody.push(row);
+                });
+
+                pdfBody.push([
+                    { content: '', colSpan: 9, styles: { fillColor: [241, 245, 249], cellPadding: 1 } }
+                ]);
+            });
+
+            doc.autoTable({
+                head: [['S.NO', 'DIA', 'GRADE', 'GSM', 'MATCHING PATTERN', 'TYPE', 'QTY (MT)', 'DECKLE', 'CUSTOMER NAME']],
+                body: pdfBody,
+                startY: 18, // Pushed down slightly to give room for the header text
+                theme: 'grid',
+                headStyles: { fillColor: [70, 178, 203], textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 8, halign: 'center', lineWidth: 0.1, lineColor: [0, 0, 0] },
+                bodyStyles: { lineWidth: 0.1, lineColor: [0, 0, 0] },
+                styles: { font: 'helvetica', fontSize: 8, cellPadding: 2, halign: 'center', valign: 'middle' },
+                columnStyles: {
+                    4: { halign: 'center', cellWidth: 90, fontStyle: 'bold', textColor: [15, 23, 42] }
+                },
+                // This hook automatically runs on every page generation
+                didDrawPage: function (data) {
+                    doc.setFont('helvetica', 'bold');
+                    doc.setFontSize(10);
+                    doc.setTextColor(15, 23, 42);
+                    
+                    // Left side: Title
+                    doc.text(`DECKLE MATCHING - PRODUCTION REPORT`, data.settings.margin.left, 10);[cite: 1]
+                    
+                    // Right side: Date and Time
+                    doc.setFont('helvetica', 'normal');
+                    doc.setFontSize(9);
+                    doc.text(`Date: ${dateStr}`, doc.internal.pageSize.getWidth() - data.settings.margin.right, 10, { align: 'right' });[cite: 1]
                 }
             });
 
