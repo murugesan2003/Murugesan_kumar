@@ -415,7 +415,7 @@
     <!-- Login Portal Overlay -->
     <div id="loginOverlay">
         <div class="login-card">
-            <h2>🔐 LOGIN</h2>
+            <h2>ðŸ” LOGIN</h2>
             <form onsubmit="handleLogin(event)">
                 <input type="text" id="loginUser" placeholder="Username" required autocomplete="username" />
                 <input type="password" id="loginPass" placeholder="Password" required autocomplete="current-password" />
@@ -433,15 +433,15 @@
         <label class="theme-switch" for="themeCheckbox" title="Toggle Light/Dark Theme">
             <input type="checkbox" id="themeCheckbox" onchange="toggleTheme()" />
             <div class="slider">
-                <span class="icon">☀️</span>
-                <span class="icon">🌙</span>
+                <span class="icon">â˜€ï¸</span>
+                <span class="icon">ðŸŒ™</span>
             </div>
         </label>
     </div>
 
     <div class="portal-header">
         <div style="display: flex; align-items: center; gap: 20px;">
-            <h2>⚡ DECKLE MATCHING</h2>
+            <h2>âš¡ DECKLE MATCHING</h2>
             <div class="user-info-box">
                 <span class="logged-user-text" id="displayUsername">LOGGED USER: GUEST</span>
                 <span class="logged-time-text" id="displayLoginTime">--</span>
@@ -478,27 +478,27 @@
             </div>
 
             <div style="display: flex; align-items: center; gap: 6px;">
-                <button id="toggleToleranceBtn" onclick="toggleTolerance()" style="background-color: #7c3aed;">⚙️ Auto-Tolerance: ON</button>
-                <button onclick="runSmartOptimization()" style="background-color: var(--success);">⚡ RUN MATCHING</button>
-                <button onclick="exportToExcel()" style="background-color: var(--accent);">📥 EXPORT EXCEL</button>
-                <button onclick="exportToPDF()" style="background-color: var(--danger);">📄 EXPORT PDF</button>
-                <button onclick="clearAllData()" style="background-color: #64748b;">🗑️ CLEAR ALL</button>
+                <button id="toggleToleranceBtn" onclick="toggleTolerance()" style="background-color: #7c3aed;">âš™ï¸ Auto-Tolerance: ON</button>
+                <button onclick="runSmartOptimization()" style="background-color: var(--success);">âš¡ RUN MATCHING</button>
+                <button onclick="exportToExcel()" style="background-color: var(--accent);">ðŸ“¥ EXPORT EXCEL</button>
+                <button onclick="exportToPDF()" style="background-color: var(--danger);">ðŸ“„ EXPORT PDF</button>
+                <button onclick="clearAllData()" style="background-color: #64748b;">ðŸ—‘ï¸ CLEAR ALL</button>
             </div>
         </div>
     </div>
 
     <div class="tab-container">
-        <button class="tab-btn active" onclick="switchTab('rawTab', this)">📁 ORDERS</button>
-        <button class="tab-btn" onclick="switchTab('matchingTab', this)">✅ MATCHED SETS</button>
-        <button class="tab-btn" onclick="switchTab('pendingTab', this)">⏳ PENDING BALANCE</button>
-        <button class="tab-btn" onclick="switchTab('abstractTab', this)">📊 SUMMARY ABSTRACT</button>
+        <button class="tab-btn active" onclick="switchTab('rawTab', this)">ðŸ“ ORDERS</button>
+        <button class="tab-btn" onclick="switchTab('matchingTab', this)">âœ… MATCHED SETS</button>
+        <button class="tab-btn" onclick="switchTab('pendingTab', this)">â³ PENDING BALANCE</button>
+        <button class="tab-btn" onclick="switchTab('abstractTab', this)">ðŸ“Š SUMMARY ABSTRACT</button>
     </div>
 
     <!-- RAW ORDERS PORTAL -->
     <div id="rawTab" class="tab-content active">
         <div class="table-controls-bar">
-            <input type="text" id="searchRaw" class="search-input-box" placeholder="🔍 Search Orders..." onkeyup="filterTable('raw')" />
-            <button onclick="exportSingleTable('raw')" style="background-color: #0284c7;">📥 Download Orders</button>
+            <input type="text" id="searchRaw" class="search-input-box" placeholder="ðŸ” Search Orders..." onkeyup="filterTable('raw')" />
+            <button onclick="exportSingleTable('raw')" style="background-color: #0284c7;">ðŸ“¥ Download Orders</button>
         </div>
 
         <div class="manual-form" style="background-color: var(--sep-bg); padding: 14px; border-radius: 8px; margin-bottom: 14px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
@@ -521,7 +521,7 @@
                 <button onclick="addManualRow()" style="background-color: var(--accent);">ADD</button>
             </div>
             <div style="display: flex; gap: 8px;">
-                <button onclick="clearRawOrders()" style="background-color: #ef4444;">🗑️ CLEAR DATA</button>
+                <button onclick="clearRawOrders()" style="background-color: #ef4444;">ðŸ—‘ï¸ CLEAR DATA</button>
             </div>
         </div>
 
@@ -538,8 +538,8 @@
     <!-- MATCHED SETS PORTAL -->
     <div id="matchingTab" class="tab-content">
         <div class="table-controls-bar">
-            <input type="text" id="searchMatching" class="search-input-box" placeholder="🔍 Search Matched Sets..." onkeyup="filterTable('matching')" />
-            <button onclick="exportSingleTable('matching')" style="background-color: #0284c7;">📥 Download Matched Sets</button>
+            <input type="text" id="searchMatching" class="search-input-box" placeholder="ðŸ” Search Matched Sets..." onkeyup="filterTable('matching')" />
+            <button onclick="exportSingleTable('matching')" style="background-color: #0284c7;">ðŸ“¥ Download Matched Sets</button>
         </div>
         <table id="matchingTable">
             <thead>
@@ -562,8 +562,8 @@
     <!-- PENDING BALANCE PORTAL -->
     <div id="pendingTab" class="tab-content">
         <div class="table-controls-bar">
-            <input type="text" id="searchPending" class="search-input-box" placeholder="🔍 Search Pending Balance..." onkeyup="filterTable('pending')" />
-            <button onclick="exportSingleTable('pending')" style="background-color: #0284c7;">📥 Download Pending Balance</button>
+            <input type="text" id="searchPending" class="search-input-box" placeholder="ðŸ” Search Pending Balance..." onkeyup="filterTable('pending')" />
+            <button onclick="exportSingleTable('pending')" style="background-color: #0284c7;">ðŸ“¥ Download Pending Balance</button>
         </div>
         <table id="pendingTable">
             <thead>
@@ -578,8 +578,8 @@
     <!-- SUMMARY ABSTRACT PORTAL -->
     <div id="abstractTab" class="tab-content">
         <div class="table-controls-bar">
-            <input type="text" id="searchAbstract" class="search-input-box" placeholder="🔍 Search Summary Abstract..." onkeyup="filterTable('abstract')" />
-            <button onclick="exportSingleTable('abstract')" style="background-color: #0284c7;">📥 Download Summary Abstract</button>
+            <input type="text" id="searchAbstract" class="search-input-box" placeholder="ðŸ” Search Summary Abstract..." onkeyup="filterTable('abstract')" />
+            <button onclick="exportSingleTable('abstract')" style="background-color: #0284c7;">ðŸ“¥ Download Summary Abstract</button>
         </div>
         <table id="abstractTable">
             <thead>
@@ -698,11 +698,11 @@
             useTolerance = !useTolerance;
             const btn = document.getElementById('toggleToleranceBtn');
             if (useTolerance) {
-                btn.innerHTML = '⚙️ Auto-Tolerance: ON';
+                btn.innerHTML = 'âš™ï¸ Auto-Tolerance: ON';
                 btn.style.backgroundColor = '#7c3aed';
                 showToast("Auto-Tolerance Enabled!");
             } else {
-                btn.innerHTML = '⚙️ Auto-Tolerance: OFF';
+                btn.innerHTML = 'âš™ï¸ Auto-Tolerance: OFF';
                 btn.style.backgroundColor = 'var(--warning)';
                 showToast("Auto-Tolerance Disabled!");
             }
@@ -1424,7 +1424,7 @@
 
             // Format current date and time
             const now = new Date();
-            const dateStr = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();[cite: 1]
+            const dateStr = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();
 
             let pdfBody = [];
             globalFinalSets.forEach(set => {
@@ -1482,7 +1482,7 @@
             doc.autoTable({
                 head: [['S.NO', 'DIA', 'GRADE', 'GSM', 'MATCHING PATTERN', 'TYPE', 'QTY (MT)', 'DECKLE', 'CUSTOMER NAME']],
                 body: pdfBody,
-                startY: 18, // Pushed down slightly to give room for the header text
+                startY: 18,
                 theme: 'grid',
                 headStyles: { fillColor: [70, 178, 203], textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 8, halign: 'center', lineWidth: 0.1, lineColor: [0, 0, 0] },
                 bodyStyles: { lineWidth: 0.1, lineColor: [0, 0, 0] },
@@ -1490,110 +1490,18 @@
                 columnStyles: {
                     4: { halign: 'center', cellWidth: 90, fontStyle: 'bold', textColor: [15, 23, 42] }
                 },
-                // This hook automatically runs on every page generation
                 didDrawPage: function (data) {
                     doc.setFont('helvetica', 'bold');
                     doc.setFontSize(10);
                     doc.setTextColor(15, 23, 42);
                     
                     // Left side: Title
-                    doc.text(`DECKLE MATCHING - PRODUCTION REPORT`, data.settings.margin.left, 10);[cite: 1]
+                    doc.text(`DECKLE MATCHING - PRODUCTION REPORT`, data.settings.margin.left, 10);
                     
                     // Right side: Date and Time
                     doc.setFont('helvetica', 'normal');
                     doc.setFontSize(9);
-                    doc.text(`Date: ${dateStr}`, doc.internal.pageSize.getWidth() - data.settings.margin.right, 10, { align: 'right' });[cite: 1]
-                }
-            });
-
-            doc.save(`Deckle_Matching_Report.pdf`);
-            showToast("Exported PDF Report!");
-        }function exportToPDF() {
-            if (!globalFinalSets.length) { alert("Run matching before exporting PDF!"); return; }
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF('landscape');
-
-            // Format current date and time
-            const now = new Date();
-            const dateStr = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();[cite: 1]
-
-            let pdfBody = [];
-            globalFinalSets.forEach(set => {
-                let totalRows = set.subItems.length;
-                let typeBlocks = [];
-                set.subItems.forEach(sub => {
-                    if (typeBlocks.length === 0 || typeBlocks[typeBlocks.length - 1].type !== sub.orderType) {
-                        typeBlocks.push({ type: sub.orderType, count: 1 });
-                    } else {
-                        typeBlocks[typeBlocks.length - 1].count++;
-                    }
-                });
-
-                let blockIndex = 0;
-                let rowInBlock = 0;
-
-                set.subItems.forEach((sub, idx) => {
-                    let row = [];
-                    if (idx === 0) {
-                        row.push({ content: set.sNo, rowSpan: totalRows });
-                        row.push({ content: set.dia, rowSpan: totalRows });
-                        row.push({ content: set.grade, rowSpan: totalRows, styles: { fontStyle: 'bold' } });
-                    }
-                    row.push({ content: sub.gsm, styles: { fontStyle: 'bold' } });
-                    row.push({ content: sub.matching, styles: { fontStyle: 'bold' } });
-
-                    if (rowInBlock === 0) {
-                        let bCount = typeBlocks[blockIndex].count;
-                        if (bCount > 1) {
-                            row.push({ content: typeBlocks[blockIndex].type, rowSpan: bCount });
-                        } else {
-                            row.push(typeBlocks[blockIndex].type);
-                        }
-                    }
-
-                    rowInBlock++;
-                    if (rowInBlock >= typeBlocks[blockIndex].count) {
-                        blockIndex++;
-                        rowInBlock = 0;
-                    }
-
-                    if (idx === 0) {
-                        row.push({ content: set.qty, rowSpan: totalRows, styles: { fontStyle: 'bold' } });
-                        row.push({ content: set.deckle, rowSpan: totalRows });
-                    }
-                    row.push({ content: sub.customerName, styles: { fontStyle: 'bold' } });
-                    pdfBody.push(row);
-                });
-
-                pdfBody.push([
-                    { content: '', colSpan: 9, styles: { fillColor: [241, 245, 249], cellPadding: 1 } }
-                ]);
-            });
-
-            doc.autoTable({
-                head: [['S.NO', 'DIA', 'GRADE', 'GSM', 'MATCHING PATTERN', 'TYPE', 'QTY (MT)', 'DECKLE', 'CUSTOMER NAME']],
-                body: pdfBody,
-                startY: 18, // Pushed down slightly to give room for the header text
-                theme: 'grid',
-                headStyles: { fillColor: [70, 178, 203], textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 8, halign: 'center', lineWidth: 0.1, lineColor: [0, 0, 0] },
-                bodyStyles: { lineWidth: 0.1, lineColor: [0, 0, 0] },
-                styles: { font: 'helvetica', fontSize: 8, cellPadding: 2, halign: 'center', valign: 'middle' },
-                columnStyles: {
-                    4: { halign: 'center', cellWidth: 90, fontStyle: 'bold', textColor: [15, 23, 42] }
-                },
-                // This hook automatically runs on every page generation
-                didDrawPage: function (data) {
-                    doc.setFont('helvetica', 'bold');
-                    doc.setFontSize(10);
-                    doc.setTextColor(15, 23, 42);
-                    
-                    // Left side: Title
-                    doc.text(`DECKLE MATCHING - PRODUCTION REPORT`, data.settings.margin.left, 10);[cite: 1]
-                    
-                    // Right side: Date and Time
-                    doc.setFont('helvetica', 'normal');
-                    doc.setFontSize(9);
-                    doc.text(`Date: ${dateStr}`, doc.internal.pageSize.getWidth() - data.settings.margin.right, 10, { align: 'right' });[cite: 1]
+                    doc.text(`Date: ${dateStr}`, doc.internal.pageSize.getWidth() - data.settings.margin.right, 10, { align: 'right' });
                 }
             });
 
