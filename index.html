@@ -870,7 +870,7 @@
                         patterns.push({ items: consolidatePatternItems(currentItems), currentD });
                     }
 
-                    if (currentCuts >= 10 || currentD > maxD || currentIndex >= pool.length) return;
+                    if (currentCuts >= 6 || currentD > maxD || currentIndex >= pool.length) return;
 
                     for (let j = currentIndex; j < pool.length; j++) {
                         let candidate = pool[j];
