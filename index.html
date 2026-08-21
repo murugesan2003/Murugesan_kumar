@@ -884,7 +884,7 @@
                             let maxGsm = Math.max(...gsms);
 
                             if ((maxGsm - minGsm) <= 10) {
-                                for (let cuts = 1; cuts <= (10 - currentCuts); cuts++) {
+                                for (let cuts = 1; cuts <= (6 - currentCuts); cuts++) {
                                     let nextD = currentD + (candidate.widthCm * cuts);
                                     if (nextD <= maxD) {
                                         currentItems.push({ item: candidate, cuts: cuts });
@@ -897,7 +897,7 @@
                     }
                 }
 
-                for (let cuts = 1; cuts <= 10; cuts++) {
+                for (let cuts = 1; cuts <= 6; cuts++) {
                     let initialD = itemI.widthCm * cuts;
                     if (initialD <= maxD) {
                         search(i, cuts, initialD, [{ item: itemI, cuts: cuts }]);
