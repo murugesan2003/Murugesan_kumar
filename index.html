@@ -415,7 +415,7 @@
     <!-- Login Portal Overlay -->
     <div id="loginOverlay">
         <div class="login-card">
-            <h2>🔐 LOGIN</h2>
+            <h2>ðŸ” LOGIN</h2>
             <form onsubmit="handleLogin(event)">
                 <input type="text" id="loginUser" placeholder="Username" required autocomplete="username" />
                 <input type="password" id="loginPass" placeholder="Password" required autocomplete="current-password" />
@@ -433,17 +433,17 @@
         <label class="theme-switch" for="themeCheckbox" title="Toggle Light/Dark Theme">
             <input type="checkbox" id="themeCheckbox" onchange="toggleTheme()" />
             <div class="slider">
-                <span class="icon">☀️</span>
-                <span class="icon">🌙</span>
+                <span class="icon">â˜€ï¸</span>
+                <span class="icon">ðŸŒ™</span>
             </div>
         </label>
     </div>
 
     <div class="portal-header">
         <div style="display: flex; align-items: center; gap: 20px;">
-            <h2>📄 DECKLE MATCHING</h2>
+            <h2>âš¡ DECKLE MATCHING</h2>
             <div class="user-info-box">
-                <span class="logged-user-text" id="displayUsername">USER: GUEST</span>
+                <span class="logged-user-text" id="displayUsername">LOGGED USER: GUEST</span>
                 <span class="logged-time-text" id="displayLoginTime">--</span>
             </div>
         </div>
@@ -478,27 +478,27 @@
             </div>
 
             <div style="display: flex; align-items: center; gap: 6px;">
-                <button id="toggleToleranceBtn" onclick="toggleTolerance()" style="background-color: #7c3aed;">⚙️ Auto-Tolerance: ON</button>
-                <button onclick="runSmartOptimization()" style="background-color: var(--success);">⚡ RUN MATCHING</button>
-                <button onclick="exportToExcel()" style="background-color: var(--accent);">📥 EXPORT EXCEL</button>
-                <button onclick="exportToPDF()" style="background-color: var(--danger);">📄 EXPORT PDF</button>
-                <button onclick="clearAllData()" style="background-color: #64748b;">🗑️ CLEAR ALL</button>
+                <button id="toggleToleranceBtn" onclick="toggleTolerance()" style="background-color: #7c3aed;">âš™ï¸ Auto-Tolerance: ON</button>
+                <button onclick="runSmartOptimization()" style="background-color: var(--success);">âš¡ RUN MATCHING</button>
+                <button onclick="exportToExcel()" style="background-color: var(--accent);">ðŸ“¥ EXPORT EXCEL</button>
+                <button onclick="exportToPDF()" style="background-color: var(--danger);">ðŸ“„ EXPORT PDF</button>
+                <button onclick="clearAllData()" style="background-color: #64748b;">ðŸ—‘ï¸ CLEAR ALL</button>
             </div>
         </div>
     </div>
 
     <div class="tab-container">
-        <button class="tab-btn active" onclick="switchTab('rawTab', this)">📁 ORDERS</button>
-        <button class="tab-btn" onclick="switchTab('matchingTab', this)">✅ MATCHED SETS</button>
-        <button class="tab-btn" onclick="switchTab('pendingTab', this)">⏳ PENDING BALANCE</button>
-        <button class="tab-btn" onclick="switchTab('abstractTab', this)">📊 SUMMARY ABSTRACT</button>
+        <button class="tab-btn active" onclick="switchTab('rawTab', this)">ðŸ“ ORDERS</button>
+        <button class="tab-btn" onclick="switchTab('matchingTab', this)">âœ… MATCHED SETS</button>
+        <button class="tab-btn" onclick="switchTab('pendingTab', this)">â³ PENDING BALANCE</button>
+        <button class="tab-btn" onclick="switchTab('abstractTab', this)">ðŸ“Š SUMMARY ABSTRACT</button>
     </div>
 
     <!-- RAW ORDERS PORTAL -->
     <div id="rawTab" class="tab-content active">
         <div class="table-controls-bar">
-            <input type="text" id="searchRaw" class="search-input-box" placeholder="🔍 Search Orders..." onkeyup="filterTable('raw')" />
-            <button onclick="exportSingleTable('raw')" style="background-color: #0284c7;">📥 Download Orders</button>
+            <input type="text" id="searchRaw" class="search-input-box" placeholder="ðŸ” Search Orders..." onkeyup="filterTable('raw')" />
+            <button onclick="exportSingleTable('raw')" style="background-color: #0284c7;">ðŸ“¥ Download Orders</button>
         </div>
 
         <div class="manual-form" style="background-color: var(--sep-bg); padding: 14px; border-radius: 8px; margin-bottom: 14px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
@@ -521,7 +521,7 @@
                 <button onclick="addManualRow()" style="background-color: var(--accent);">ADD</button>
             </div>
             <div style="display: flex; gap: 8px;">
-                <button onclick="clearRawOrders()" style="background-color: #ef4444;">🗑️ CLEAR DATA</button>
+                <button onclick="clearRawOrders()" style="background-color: #ef4444;">ðŸ—‘ï¸ CLEAR DATA</button>
             </div>
         </div>
 
@@ -538,8 +538,8 @@
     <!-- MATCHED SETS PORTAL -->
     <div id="matchingTab" class="tab-content">
         <div class="table-controls-bar">
-            <input type="text" id="searchMatching" class="search-input-box" placeholder="🔍 Search Matched Sets..." onkeyup="filterTable('matching')" />
-            <button onclick="exportSingleTable('matching')" style="background-color: #0284c7;">📥 Download Matched Sets</button>
+            <input type="text" id="searchMatching" class="search-input-box" placeholder="ðŸ” Search Matched Sets..." onkeyup="filterTable('matching')" />
+            <button onclick="exportSingleTable('matching')" style="background-color: #0284c7;">ðŸ“¥ Download Matched Sets</button>
         </div>
         <table id="matchingTable">
             <thead>
@@ -562,8 +562,8 @@
     <!-- PENDING BALANCE PORTAL -->
     <div id="pendingTab" class="tab-content">
         <div class="table-controls-bar">
-            <input type="text" id="searchPending" class="search-input-box" placeholder="🔍 Search Pending Balance..." onkeyup="filterTable('pending')" />
-            <button onclick="exportSingleTable('pending')" style="background-color: #0284c7;">📥 Download Pending Balance</button>
+            <input type="text" id="searchPending" class="search-input-box" placeholder="ðŸ” Search Pending Balance..." onkeyup="filterTable('pending')" />
+            <button onclick="exportSingleTable('pending')" style="background-color: #0284c7;">ðŸ“¥ Download Pending Balance</button>
         </div>
         <table id="pendingTable">
             <thead>
@@ -578,8 +578,8 @@
     <!-- SUMMARY ABSTRACT PORTAL -->
     <div id="abstractTab" class="tab-content">
         <div class="table-controls-bar">
-            <input type="text" id="searchAbstract" class="search-input-box" placeholder="🔍 Search Summary Abstract..." onkeyup="filterTable('abstract')" />
-            <button onclick="exportSingleTable('abstract')" style="background-color: #0284c7;">📥 Download Summary Abstract</button>
+            <input type="text" id="searchAbstract" class="search-input-box" placeholder="ðŸ” Search Summary Abstract..." onkeyup="filterTable('abstract')" />
+            <button onclick="exportSingleTable('abstract')" style="background-color: #0284c7;">ðŸ“¥ Download Summary Abstract</button>
         </div>
         <table id="abstractTable">
             <thead>
@@ -698,11 +698,11 @@
             useTolerance = !useTolerance;
             const btn = document.getElementById('toggleToleranceBtn');
             if (useTolerance) {
-                btn.innerHTML = '⚙️ Auto-Tolerance: ON';
+                btn.innerHTML = 'âš™ï¸ Auto-Tolerance: ON';
                 btn.style.backgroundColor = '#7c3aed';
                 showToast("Auto-Tolerance Enabled!");
             } else {
-                btn.innerHTML = '⚙️ Auto-Tolerance: OFF';
+                btn.innerHTML = 'âš™ï¸ Auto-Tolerance: OFF';
                 btn.style.backgroundColor = 'var(--warning)';
                 showToast("Auto-Tolerance Disabled!");
             }
@@ -870,7 +870,7 @@
                         patterns.push({ items: consolidatePatternItems(currentItems), currentD });
                     }
 
-                    if (currentCuts >= 6 || currentD > maxD || currentIndex >= pool.length) return;
+                    if (currentCuts >= 10 || currentD > maxD || currentIndex >= pool.length) return;
 
                     for (let j = currentIndex; j < pool.length; j++) {
                         let candidate = pool[j];
@@ -884,7 +884,7 @@
                             let maxGsm = Math.max(...gsms);
 
                             if ((maxGsm - minGsm) <= 10) {
-                                for (let cuts = 1; cuts <= (6 - currentCuts); cuts++) {
+                                for (let cuts = 1; cuts <= (10 - currentCuts); cuts++) {
                                     let nextD = currentD + (candidate.widthCm * cuts);
                                     if (nextD <= maxD) {
                                         currentItems.push({ item: candidate, cuts: cuts });
@@ -897,7 +897,7 @@
                     }
                 }
 
-                for (let cuts = 1; cuts <= 6; cuts++) {
+                for (let cuts = 1; cuts <= 10; cuts++) {
                     let initialD = itemI.widthCm * cuts;
                     if (initialD <= maxD) {
                         search(i, cuts, initialD, [{ item: itemI, cuts: cuts }]);
@@ -1422,83 +1422,149 @@
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF('landscape');
 
-            // Format current date and time
             const now = new Date();
-            const dateStr = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const year = now.getFullYear();
+            
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            const strHours = String(hours).padStart(2, '0');
+
+            const dateStr = `${day}/${month}/${year} , ${strHours}:${minutes} ${ampm}`;
+
+            let gradeGroups = {};
+            globalFinalSets.forEach(set => {
+                if (!gradeGroups[set.grade]) {
+                    gradeGroups[set.grade] = { sets: [], subtotalQty: 0 };
+                }
+                gradeGroups[set.grade].sets.push(set);
+                gradeGroups[set.grade].subtotalQty += parseFloat(set.qty) || 0;
+            });
 
             let pdfBody = [];
-            globalFinalSets.forEach(set => {
-                let totalRows = set.subItems.length;
-                let typeBlocks = [];
-                set.subItems.forEach(sub => {
-                    if (typeBlocks.length === 0 || typeBlocks[typeBlocks.length - 1].type !== sub.orderType) {
-                        typeBlocks.push({ type: sub.orderType, count: 1 });
-                    } else {
-                        typeBlocks[typeBlocks.length - 1].count++;
-                    }
-                });
 
-                let blockIndex = 0;
-                let rowInBlock = 0;
+            // Loop through each grade group and add header row + column titles row for each group
+            Object.keys(gradeGroups).forEach(gradeKey => {
+                let group = gradeGroups[gradeKey];
 
-                set.subItems.forEach((sub, idx) => {
-                    let row = [];
-                    if (idx === 0) {
-                        row.push({ content: set.sNo, rowSpan: totalRows });
-                        row.push({ content: set.dia, rowSpan: totalRows });
-                        row.push({ content: set.grade, rowSpan: totalRows, styles: { fontStyle: 'bold' } });
-                    }
-                    row.push({ content: sub.gsm, styles: { fontStyle: 'bold' } });
-                    row.push({ content: sub.matching, styles: { fontStyle: 'bold' } });
+                // 1. Grade Section & Sub Total Row (White Bold Text, Centered & Larger Section Text)
+                pdfBody.push([
+                    { content: `GRADE SECTION : ${gradeKey}`, colSpan: 7, styles: { fillColor: [70, 178, 203], textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 10, halign: 'center', cellPadding: 3 } },
+                    { content: `SUB TOTAL`, styles: { fillColor: [70, 178, 203], textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 9, halign: 'center', cellPadding: 3 } },
+                    { content: `${group.subtotalQty.toFixed(1)} MT`, styles: { fillColor: [70, 178, 203], textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 9, halign: 'center', cellPadding: 3 } }
+                ]);
 
-                    if (rowInBlock === 0) {
-                        let bCount = typeBlocks[blockIndex].count;
-                        if (bCount > 1) {
-                            row.push({ content: typeBlocks[blockIndex].type, rowSpan: bCount });
+                // 2. Column Header Row for this Grade Section (White Bold Text)
+                pdfBody.push([
+                    { content: 'S.NO', styles: { fillColor: [70, 178, 203], textColor: [255, 255, 255], fontStyle: 'bold', halign: 'center', fontSize: 8 } },
+                    { content: 'DIA', styles: { fillColor: [70, 178, 203], textColor: [255, 255, 255], fontStyle: 'bold', halign: 'center', fontSize: 8 } },
+                    { content: 'GRADE', styles: { fillColor: [70, 178, 203], textColor: [255, 255, 255], fontStyle: 'bold', halign: 'center', fontSize: 8 } },
+                    { content: 'GSM', styles: { fillColor: [70, 178, 203], textColor: [255, 255, 255], fontStyle: 'bold', halign: 'center', fontSize: 8 } },
+                    { content: 'MATCHING PATTERN', styles: { fillColor: [70, 178, 203], textColor: [255, 255, 255], fontStyle: 'bold', halign: 'center', fontSize: 8 } },
+                    { content: 'TYPE', styles: { fillColor: [70, 178, 203], textColor: [255, 255, 255], fontStyle: 'bold', halign: 'center', fontSize: 8 } },
+                    { content: 'QTY (MT)', styles: { fillColor: [70, 178, 203], textColor: [255, 255, 255], fontStyle: 'bold', halign: 'center', fontSize: 8 } },
+                    { content: 'DECKLE', styles: { fillColor: [70, 178, 203], textColor: [255, 255, 255], fontStyle: 'bold', halign: 'center', fontSize: 8 } },
+                    { content: 'CUSTOMER NAME', styles: { fillColor: [70, 178, 203], textColor: [255, 255, 255], fontStyle: 'bold', halign: 'center', fontSize: 8 } }
+                ]);
+
+                group.sets.forEach((set, setIdx) => {
+                    let totalRows = set.subItems.length;
+                    let typeBlocks = [];
+                    set.subItems.forEach(sub => {
+                        if (typeBlocks.length === 0 || typeBlocks[typeBlocks.length - 1].type !== sub.orderType) {
+                            typeBlocks.push({ type: sub.orderType, count: 1 });
                         } else {
-                            row.push(typeBlocks[blockIndex].type);
+                            typeBlocks[typeBlocks.length - 1].count++;
                         }
-                    }
+                    });
 
-                    rowInBlock++;
-                    if (rowInBlock >= typeBlocks[blockIndex].count) {
-                        blockIndex++;
-                        rowInBlock = 0;
-                    }
+                    let blockIndex = 0;
+                    let rowInBlock = 0;
 
-                    if (idx === 0) {
-                        row.push({ content: set.qty, rowSpan: totalRows, styles: { fontStyle: 'bold' } });
-                        row.push({ content: set.deckle, rowSpan: totalRows });
+                    set.subItems.forEach((sub, idx) => {
+                        let row = [];
+                        if (idx === 0) {
+                            row.push({ content: set.sNo, rowSpan: totalRows, styles: { textColor: [50, 50, 50] } });
+                            row.push({ content: set.dia, rowSpan: totalRows, styles: { textColor: [50, 50, 50] } });
+                            row.push({ content: set.grade, rowSpan: totalRows, styles: { fontStyle: 'bold', textColor: [50, 50, 50] } });
+                        }
+                        row.push({ content: sub.gsm, styles: { fontStyle: 'bold', textColor: [50, 50, 50] } });
+                        row.push({ content: sub.matching, styles: { fontStyle: 'bold', textColor: [30, 30, 30] } });
+
+                        if (rowInBlock === 0) {
+                            let bCount = typeBlocks[blockIndex].count;
+                            if (bCount > 1) {
+                                row.push({ content: typeBlocks[blockIndex].type, rowSpan: bCount, styles: { textColor: [50, 50, 50] } });
+                            } else {
+                                row.push({ content: typeBlocks[blockIndex].type, styles: { textColor: [50, 50, 50] } });
+                            }
+                        }
+
+                        rowInBlock++;
+                        if (rowInBlock >= typeBlocks[blockIndex].count) {
+                            blockIndex++;
+                            rowInBlock = 0;
+                        }
+
+                        if (idx === 0) {
+                            row.push({ content: set.qty, rowSpan: totalRows, styles: { fontStyle: 'bold', textColor: [50, 50, 50] } });
+                            row.push({ content: set.deckle, rowSpan: totalRows, styles: { textColor: [50, 50, 50] } });
+                        }
+                        row.push({ content: sub.customerName, styles: { fontStyle: 'bold', textColor: [50, 50, 50] } });
+                        pdfBody.push(row);
+                    });
+
+                    if (setIdx < group.sets.length - 1) {
+                        pdfBody.push([
+                            { content: '', colSpan: 9, styles: { fillColor: [255, 255, 255], cellPadding: 1, lineWidth: 0.1, lineColor: [200, 200, 200] } }
+                        ]);
                     }
-                    row.push({ content: sub.customerName, styles: { fontStyle: 'bold' } });
-                    pdfBody.push(row);
                 });
 
                 pdfBody.push([
-                    { content: '', colSpan: 9, styles: { fillColor: [241, 245, 249], cellPadding: 1 } }
+                    { content: '', colSpan: 9, styles: { fillColor: [255, 255, 255], cellPadding: 2, lineWidth: 0.1, lineColor: [200, 200, 200] } }
                 ]);
             });
 
             doc.autoTable({
-                head: [['S.NO', 'DIA', 'GRADE', 'GSM', 'MATCHING PATTERN', 'TYPE', 'QTY (MT)', 'DECKLE', 'CUSTOMER NAME']],
+                head: [],
                 body: pdfBody,
                 startY: 18,
                 theme: 'grid',
-                headStyles: { fillColor: [70, 178, 203], textColor: [255, 255, 255], fontStyle: 'bold', fontSize: 8, halign: 'center', lineWidth: 0.1, lineColor: [0, 0, 0] },
-                bodyStyles: { lineWidth: 0.1, lineColor: [0, 0, 0] },
-                styles: { font: 'helvetica', fontSize: 8, cellPadding: 2, halign: 'center', valign: 'middle' },
+                bodyStyles: { 
+                    lineWidth: 0.1, 
+                    lineColor: [200, 200, 200], 
+                    textColor: [50, 50, 50]     
+                },
+                styles: { 
+                    font: 'helvetica', 
+                    fontSize: 8, 
+                    cellPadding: 2, 
+                    halign: 'center', 
+                    valign: 'middle' 
+                },
                 columnStyles: {
-                    4: { halign: 'center', cellWidth: 90, fontStyle: 'bold', textColor: [15, 23, 42] }
+                    0: { cellWidth: 12 }, // S.NO
+                    1: { cellWidth: 14 }, // DIA
+                    2: { cellWidth: 24 }, // GRADE
+                    3: { cellWidth: 15 }, // GSM
+                    4: { halign: 'center', cellWidth: 95, fontStyle: 'bold', textColor: [30, 30, 30] }, // MATCHING PATTERN
+                    5: { cellWidth: 18 }, // TYPE
+                    6: { cellWidth: 20 }, // QTY (MT)
+                    7: { cellWidth: 18 }, // DECKLE
+                    8: { cellWidth: 45 }  // CUSTOMER NAME
                 },
                 didDrawPage: function (data) {
                     doc.setFont('helvetica', 'bold');
                     doc.setFontSize(10);
-                    doc.setTextColor(15, 23, 42);
+                    doc.setTextColor(40, 40, 40);
                     
-                    // Left side: Title
                     doc.text(`DECKLE MATCHING - PRODUCTION REPORT`, data.settings.margin.left, 10);
                     
-                    // Right side: Date and Time
                     doc.setFont('helvetica', 'normal');
                     doc.setFontSize(9);
                     doc.text(`Date: ${dateStr}`, doc.internal.pageSize.getWidth() - data.settings.margin.right, 10, { align: 'right' });
@@ -1506,7 +1572,7 @@
             });
 
             doc.save(`Deckle_Matching_Report.pdf`);
-            showToast("Exported PDF Report!");
+            showToast("Exported Light & Clean PDF Report Successfully!");
         }
     </script>
 </body>
